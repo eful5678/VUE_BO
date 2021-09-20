@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/vue_practice
+    username: root
+    password: 321200
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    #      ddl-auto: update
+    #      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+#        format_sql: true
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
+
+server:
+  port: 8090
