@@ -28,6 +28,35 @@ public class MemberDto {
                     .build();
         }
     }
+    @Getter
+    @Setter
+    public static class loginMember{
+        private String username;
+        private String password;
+        public loginMember(String username, String password){
+            this.username = username;
+            this.password = password;
+        }
+    }
+
+    @Getter
+    @Setter
+    public static class loginMemberResponse{
+        private String username;
+        private String nickname;
+        private String success;
+
+        public loginMemberResponse(String username, String nickname){
+            this.username = username;
+            this.nickname = nickname;
+        }
+        public loginMemberResponse(String success){
+            this.success = success;
+        }
+        public loginMemberResponse(){
+
+        }
+    }
 
 //    @Getter
 //    @Setter

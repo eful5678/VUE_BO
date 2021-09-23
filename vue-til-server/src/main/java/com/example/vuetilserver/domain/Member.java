@@ -11,6 +11,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@ToString(of = {"id", "username", "password","nickname"})
 public class Member {
 
     @Id
