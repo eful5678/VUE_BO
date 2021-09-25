@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MemberRepositorySupport {
 
-    MemberDto.loginMemberResponse findMemberByUsernameAndPassword(MemberDto.loginMember loginMember);
+//    MemberDto.loginMemberResponse findMemberByUsernameAndPassword(MemberDto.loginMember loginMember);
 }

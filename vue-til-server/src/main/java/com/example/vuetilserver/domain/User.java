@@ -1,6 +1,9 @@
 package com.example.vuetilserver.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,33 +14,25 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Entity
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Member implements UserDetails {
+@Entity
+public class User implements UserDetails {
 
     @Id
-    @GeneratedValue
-    @Column(name = "member_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    @Column(length = 100, nullable = false, unique = true)
+    private String email;
 
+    @Column(length = 30, nullable = false)
     private String password;
 
+    @Column
     private String nickname;
-
-//    @Builder
-//    protected Member(Long id, String username, String password, String nickname, List<String> roles, char delYn){
-//        this.id = id;
-//        this.username = username;
-//        this.password = password;
-//        this.nickname = nickname;
-//        this.roles = roles;
-//    }
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
@@ -52,7 +47,7 @@ public class Member implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override

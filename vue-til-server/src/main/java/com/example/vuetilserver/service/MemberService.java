@@ -9,5 +9,5 @@ public interface MemberService{
 
     Member insertMember(MemberDto.insertMember member);
 
-    MemberDto.loginMemberResponse loginMember(MemberDto.loginMember loginMember);
+//    MemberDto.loginMemberResponse loginMember(MemberDto.loginMember loginMember);
 }

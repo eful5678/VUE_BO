@@ -1,6 +1,7 @@
 package com.example.vuetilserver.dto;
 
 import com.example.vuetilserver.domain.Member;
+import com.example.vuetilserver.dto.global.GlobalBasicModelInterface;
 import lombok.*;
 
 import java.util.function.Supplier;
@@ -8,10 +9,39 @@ import java.util.function.Supplier;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberDto {
 
+
     @Getter
     @Setter
-    public static class insertMember{
+    public static class ResponseEntity{
+
+    }
+
+    @Getter
+    @Setter
+    public static class modelIdentity implements GlobalBasicModelInterface<Member> {
         private Long id;
+
+        @Override
+        public void modeling(Member member) {
+            this.id = member.getId();
+        }
+    }
+
+    @Getter
+    @Setter
+    public static class modelBasic extends MemberDto.modelIdentity{
+        private char delYn;
+
+        private char useYn;
+
+        public void modeling(Member member){
+            super.modeling(member);
+        }
+    }
+
+    @Getter
+    @Setter
+    public static class insertMember extends modelBasic{
 
         private String username;
 
@@ -21,7 +51,6 @@ public class MemberDto {
 
         public Supplier<Member> toEntity(){
             return () -> Member.builder()
-                    .id(this.id)
                     .username(this.username)
                     .nickname(this.nickname)
                     .password(this.password)
@@ -45,10 +74,13 @@ public class MemberDto {
         private String username;
         private String nickname;
         private String success;
+        private String token;
 
-        public loginMemberResponse(String username, String nickname){
+        public loginMemberResponse(String username, String nickname, String success, String token){
             this.username = username;
             this.nickname = nickname;
+            this.success = success;
+            this.token = token;
         }
         public loginMemberResponse(String success){
             this.success = success;

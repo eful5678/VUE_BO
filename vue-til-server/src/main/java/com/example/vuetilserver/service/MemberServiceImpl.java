@@ -29,22 +29,22 @@ public class MemberServiceImpl implements MemberService {
         return member;
     }
 
-    @Override
-    public MemberDto.loginMemberResponse loginMember(MemberDto.loginMember loginMember) {
-
-        MemberDto.loginMemberResponse member = memberRepositorySupport.findMemberByUsernameAndPassword(loginMember);
-        if(member.getUsername() != null){
-            return member;
-        }else{
-            return null;
-//            System.out.println("login 실패");
-        }
+//    @Override
+//    public MemberDto.loginMemberResponse loginMember(MemberDto.loginMember loginMember) {
 //
+//        MemberDto.loginMemberResponse member = memberRepositorySupport.findMemberByUsernameAndPassword(loginMember);
+//        if(member.getUsername() != null){
+//            return member;
+//        }else{
+//            return null;
+////            System.out.println("login 실패");
+//        }
+////
 //        Member member = memberRepositorySupport.findMemberByUsernameAndPassword(loginMember);
 ////        MemberDto.loginMemberResponse()
 //        System.out.println(member.getUsername());
-
+//
 //        return new MemberDto.loginMemberResponse(member.getUsername(), member.getPassword());
-
-    }
+//
+//    }
 }

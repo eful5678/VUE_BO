@@ -41,22 +41,23 @@ public class MemberRepositorySupportImpl extends QuerydslRepositorySupport imple
 //        jpaQueryFactory = new JPAQueryFactory(entityManager); // JPAQueryFactory
 //    }
 
-    @Override
-    public MemberDto.loginMemberResponse findMemberByUsernameAndPassword(MemberDto.loginMember loginMember) {
+//    @Override
+//    public MemberDto.loginMemberResponse findMemberByUsernameAndPassword(MemberDto.loginMember loginMember) {
 //        QMember member = new QMember("member");
-        final QMember member = QMember.member;
-        final BooleanExpression isUsername = member.username.eq(loginMember.getUsername());
-        final BooleanExpression isPassword = member.password.eq(loginMember.getPassword());
-        System.out.println(member.username);
-
-        List<Member> members = jpaQueryFactory.select(member)
-                                                .from(member)
-                                                .where(isUsername
-                                                .and(isPassword))
-                                                .fetch();
-        return new MemberDto.loginMemberResponse(members.get(0).getUsername(), members.get(0).getNickname());
+//        final QMember member = QMember.member;
+//        final BooleanExpression isUsername = member.username.eq(loginMember.getUsername());
+//        final BooleanExpression isPassword = member.password.eq(loginMember.getPassword());
+//        System.out.println(member.username);
+//
+//        List<Member> members = jpaQueryFactory.select(member)
+//                                                .from(member)
+//                                                .where(isUsername
+//                                                .and(isPassword))
+//                                                .fetch();
+//        return new MemberDto.loginMemberResponse(members.get(0).getUsername(), members.get(0).getNickname());
 
 //        return jpaQueryFactory
+
 //                .select(Projections.constructor(MemberDto.loginMemberResponse.class))
 //                .from(member)
 //                .where(isUsername
@@ -68,5 +69,5 @@ public class MemberRepositorySupportImpl extends QuerydslRepositorySupport imple
 //                .where(isUsername
 //                .and(isPassword))
 //                .fetchOne();
-    }
+//    }
 }
