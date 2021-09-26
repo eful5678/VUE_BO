@@ -30,6 +30,9 @@ public class Member implements UserDetails {
 
     private String nickname;
 
+    @OneToMany(mappedBy = "member")
+    private List<Post> posts = new ArrayList<>();
+
 //    @Builder
 //    protected Member(Long id, String username, String password, String nickname, List<String> roles, char delYn){
 //        this.id = id;
