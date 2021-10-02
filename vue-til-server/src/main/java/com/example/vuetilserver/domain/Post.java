@@ -1,5 +1,6 @@
 package com.example.vuetilserver.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,4 +23,11 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @Builder
+    protected Post(String title, String contents, Member member){
+        this.title = title;
+        this.contents = contents;
+        this.member = member;
+    }
 }

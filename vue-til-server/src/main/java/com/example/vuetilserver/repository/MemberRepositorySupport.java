@@ -8,4 +8,6 @@ import java.util.List;
 public interface MemberRepositorySupport {
 
 //    MemberDto.loginMemberResponse findMemberByUsernameAndPassword(MemberDto.loginMember loginMember);
+
+    Member findMemberByUsername(String username);
 }

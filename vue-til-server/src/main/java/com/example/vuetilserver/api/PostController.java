@@ -4,10 +4,7 @@ import com.example.vuetilserver.domain.Post;
 import com.example.vuetilserver.dto.PostDto;
 import com.example.vuetilserver.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +19,10 @@ public class PostController {
     @GetMapping("/search")
     public List<PostDto.PostList> searchPosts(){
         return postService.search();
+    }
+
+    @PostMapping("/insert")
+    public void insertPost(@RequestBody PostDto.PostInsert postInsert){
+        postService.insertPost(postInsert);
     }
 }

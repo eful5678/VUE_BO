@@ -8,4 +8,6 @@ import java.util.List;
 public interface PostService {
 
     List<PostDto.PostList> search();
+
+    void insertPost(PostDto.PostInsert postInsert);
 }

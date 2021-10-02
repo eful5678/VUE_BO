@@ -6,8 +6,34 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.function.Supplier;
+
 @NoArgsConstructor
 public class PostDto {
+
+    @Getter
+    @Setter
+    public static class PostInsert{
+
+        private String title;
+
+        private String contents;
+
+        private String username;
+
+        public Supplier<Post> toEntity(Member member){
+            return () -> Post.builder()
+                    .title(this.title)
+                    .contents(this.contents)
+                    .member(member)
+                    .build();
+        }
+
+        public PostInsert(String title, String content){
+            this.title = title;
+            this.contents = contents;
+        }
+    }
 
     @Getter
     @Setter

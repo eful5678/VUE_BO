@@ -28,6 +28,15 @@ public class MemberRepositorySupportImpl extends QuerydslRepositorySupport imple
         jpaQueryFactory = new JPAQueryFactory(em);
     }
 
+    public Member findMemberByUsername(String username){
+        QMember member = QMember.member;
+
+        return jpaQueryFactory.select(member)
+                .from(member)
+                .where(member.username.eq(username))
+                .fetchFirst();
+    }
+
 //    private final EntityManager em;
 //
 
