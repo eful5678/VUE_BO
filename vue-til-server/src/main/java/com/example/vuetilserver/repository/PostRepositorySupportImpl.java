@@ -30,10 +30,16 @@ public class PostRepositorySupportImpl extends QuerydslRepositorySupport impleme
         final QPost post = QPost.post;
         final QMember member = QMember.member;
 
-        return jpaQueryFactory.select(Projections.constructor(PostDto.PostList.class, post, member))
+        List<PostDto.PostList> result = jpaQueryFactory.select(Projections.constructor(PostDto.PostList.class, post, member))
                                 .from(post)
                                 .join(member)
                                 .on(post.member.id.eq(member.id))
                                 .fetch();
+        if(result.size() > 0){
+            return result;
+        }else{
+            System.out.println("결과없음");
+        }
+        return result;
     }
 }

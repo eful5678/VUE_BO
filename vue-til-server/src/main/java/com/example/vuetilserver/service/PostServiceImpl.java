@@ -1,5 +1,6 @@
 package com.example.vuetilserver.service;
 
+import com.example.vuetilserver.domain.Member;
 import com.example.vuetilserver.dto.PostDto;
 import com.example.vuetilserver.repository.MemberRepositorySupport;
 import com.example.vuetilserver.repository.PostRepositoryManager;
@@ -27,8 +28,16 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public void insertPost(PostDto.PostInsert postInsert) {
+        
+        final Member member = memberRepositorySupport.findMemberByUsername(postInsert.getUsername());
+        
+        if(member.getUsername() == null){
+            System.out.println("로그인");
+        }else{
+            postRepositoryManager.insertPost(postInsert);
+        }
 
-        postRepositoryManager.insertPost(postInsert);
+        
     }
 
 }

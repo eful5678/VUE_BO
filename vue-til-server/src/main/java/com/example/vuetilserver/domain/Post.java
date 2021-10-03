@@ -30,4 +30,8 @@ public class Post {
         this.contents = contents;
         this.member = member;
     }
+
+    public Post(){
+
+    }
 }
