@@ -9,5 +9,5 @@ public interface PostService {
 
     List<PostDto.PostList> search();
 
-    void insertPost(PostDto.PostInsert postInsert);
+    PostDto.Insert insertPost(PostDto.PostInsert postInsert);
 }

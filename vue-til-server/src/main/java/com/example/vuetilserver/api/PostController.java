@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,7 +23,13 @@ public class PostController {
     }
 
     @PostMapping("/insert")
-    public void insertPost(@RequestBody PostDto.PostInsert postInsert){
-        postService.insertPost(postInsert);
+    public PostDto.Insert insertPost(@RequestBody PostDto.PostInsert postInsert){
+
+        return postService.insertPost(postInsert);
+    }
+
+    @PutMapping("/delete/{postId}")
+    public void deletePost(@PathVariable(name="postId")Optional<Long> postId){
+        System.out.println(postId);
     }
 }

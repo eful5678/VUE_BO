@@ -20,7 +20,7 @@ public class PostRepositoryManagerImpl implements PostRepositoryManager{
     private final MemberRepositorySupport memberRepositorySupport;
 
     @Override
-    public void insertPost(PostDto.PostInsert postInsert) {
+    public Post insertPost(PostDto.PostInsert postInsert) {
 //        Long id = SessionUtil.getUsername();
 //        final Member member = memberRepositorySupport.findMemberById(SessionUtil.getUsername());
 
@@ -28,6 +28,8 @@ public class PostRepositoryManagerImpl implements PostRepositoryManager{
         final Post post = postInsert.toEntity(member).get();
 
         em.persist(post);
+
+        return post;
 
     }
 }
