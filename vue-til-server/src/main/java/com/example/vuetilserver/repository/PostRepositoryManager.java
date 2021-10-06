@@ -6,4 +6,6 @@ import com.example.vuetilserver.dto.PostDto;
 public interface PostRepositoryManager {
 
     Post insertPost(PostDto.PostInsert postInsert);
+
+    void deletePost(Post post);
 }

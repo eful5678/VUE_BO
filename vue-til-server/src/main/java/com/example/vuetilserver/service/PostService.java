@@ -10,4 +10,8 @@ public interface PostService {
     List<PostDto.PostList> search();
 
     PostDto.Insert insertPost(PostDto.PostInsert postInsert);
+
+    PostDto.Delete deletePost(Long postId);
+
+    PostDto.info info(PostDto.infoParam infoParam);
 }

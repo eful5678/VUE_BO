@@ -87,7 +87,19 @@ public class PostDto {
 
     @Getter
     @Setter
-    public static class PostList{
+    @NoArgsConstructor
+    public static class Delete extends PostDto.modelBasic implements GlobalLazyModelInterface<Post, PostDto.Delete>{
+
+        @Override
+        public Delete lazyModeling(Post post) {
+            this.modeling(post);
+            return this;
+        }
+    }
+
+    @Getter
+    @Setter
+    public static class PostList extends PostDto.modelBasic implements GlobalLazyModelInterface<Post, PostDto.PostList>{
 
         private Long id;
 
@@ -109,6 +121,49 @@ public class PostDto {
             this.contents = post.getContents();
             this.title = post.getTitle();
             this.writer = member.getNickname();
+            lazyModeling(post);
+        }
+
+        @Override
+        public PostList lazyModeling(Post post) {
+            this.modeling(post);
+            return this;
+        }
+    }
+
+    @Getter
+    @Setter
+    public static class infoParam{
+        private Long postId;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class info extends modelBasic implements GlobalLazyModelInterface<Post, PostDto.info>{
+        private String title;
+
+        private String contents;
+
+//        private Member member;
+
+//        public info(Member member, Post post){
+//            this.member = member;
+//            this.title = post.getTitle();
+//            this.contents = post.getContents();
+//
+//        }
+        public info(Post post){
+            this.modeling(post);
+            this.title = post.getTitle();
+        }
+        @Override
+        public info lazyModeling(Post post) {
+            super.modeling(post);
+            this.title = post.getTitle();
+            this.contents = post.getContents();
+//            this.member = post.getMember();
+            return this;
         }
     }
 }

@@ -44,4 +44,22 @@ public class PostServiceImpl implements PostService{
         return null;
     }
 
+    @Override
+    public PostDto.Delete deletePost(Long postId) {
+
+        final Post post = postRepositorySupport.findPostById(postId);
+
+        postRepositoryManager.deletePost(post);
+
+        return new PostDto.Delete().lazyModeling(post);
+    }
+
+    @Override
+    public PostDto.info info(PostDto.infoParam infoParam) {
+
+        final Post post = postRepositorySupport.findPostById(infoParam.getPostId());
+
+        return new PostDto.info().lazyModeling(post);
+    }
+
 }

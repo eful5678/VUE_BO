@@ -32,4 +32,11 @@ public class PostRepositoryManagerImpl implements PostRepositoryManager{
         return post;
 
     }
+
+    @Override
+    public void deletePost(Post post) {
+
+        post.doRemove(post);
+
+    }
 }

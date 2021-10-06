@@ -6,6 +6,7 @@ import com.example.vuetilserver.domain.QMember;
 import com.example.vuetilserver.domain.QPost;
 import com.example.vuetilserver.dto.PostDto;
 import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
@@ -30,10 +31,15 @@ public class PostRepositorySupportImpl extends QuerydslRepositorySupport impleme
         final QPost post = QPost.post;
         final QMember member = QMember.member;
 
+        final BooleanExpression isUseYn = post.useYn.eq('Y');
+        final BooleanExpression isDelYn = post.delYn.eq('N');
+
         List<PostDto.PostList> result = jpaQueryFactory.select(Projections.constructor(PostDto.PostList.class, post, member))
                                 .from(post)
                                 .join(member)
                                 .on(post.member.id.eq(member.id))
+                                .where(isUseYn
+                                    .and(isDelYn))
                                 .fetch();
         if(result.size() > 0){
             return result;
@@ -41,5 +47,16 @@ public class PostRepositorySupportImpl extends QuerydslRepositorySupport impleme
             System.out.println("결과없음");
         }
         return result;
+    }
+
+    @Override
+    public Post findPostById(Long postId) {
+
+        QPost post = QPost.post;
+
+        return jpaQueryFactory.select(post)
+                .from(post)
+                .where(post.id.eq(postId))
+                .fetchOne();
     }
 }

@@ -3,6 +3,7 @@ package com.example.vuetilserver.domain;
 import com.example.vuetilserver.domain.global.BaseEntity;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Post extends BaseEntity {
 
     @Id
@@ -39,8 +41,22 @@ public class Post extends BaseEntity {
         this.member = member;
     }
 
-
-    public Post(){
-
+    public void doRemove(Post post){
+        this.destroy(post);
     }
+
+    public void doChange(Post post){
+        this.title = post.getTitle();
+        this.contents = post.getContents();
+    }
+
+    public Post destroy(Post post){
+        this.delYn = 'Y';
+        this.useYn = 'N';
+        return post;
+    }
+
+
+
+
 }

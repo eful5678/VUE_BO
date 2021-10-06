@@ -29,7 +29,14 @@ public class PostController {
     }
 
     @PutMapping("/delete/{postId}")
-    public void deletePost(@PathVariable(name="postId")Optional<Long> postId){
+    public PostDto.Delete deletePost(@PathVariable(name = "postId") Optional<Long> postId){
         System.out.println(postId);
+
+        return postService.deletePost(postId.get());
+    }
+
+    @GetMapping("/info")
+    public PostDto.info infoPost(@ModelAttribute PostDto.infoParam infoParam){
+        return postService.info(infoParam);
     }
 }
