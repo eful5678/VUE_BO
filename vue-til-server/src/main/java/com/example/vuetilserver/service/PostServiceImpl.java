@@ -62,4 +62,12 @@ public class PostServiceImpl implements PostService{
         return new PostDto.info().lazyModeling(post);
     }
 
+    @Override
+    public PostDto.update updatePost(PostDto.updateParam updateParam) {
+
+        postRepositoryManager.updatePost(updateParam);
+
+        return new PostDto.update();
+    }
+
 }

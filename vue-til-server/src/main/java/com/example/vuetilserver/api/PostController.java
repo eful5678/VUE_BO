@@ -39,4 +39,9 @@ public class PostController {
     public PostDto.info infoPost(@ModelAttribute PostDto.infoParam infoParam){
         return postService.info(infoParam);
     }
+
+    @PutMapping("/update")
+    public PostDto.update updatePost(@RequestBody PostDto.updateParam updateParam){
+        return postService.updatePost(updateParam);
+    }
 }

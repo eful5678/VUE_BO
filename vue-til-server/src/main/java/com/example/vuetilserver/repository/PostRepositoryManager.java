@@ -8,4 +8,6 @@ public interface PostRepositoryManager {
     Post insertPost(PostDto.PostInsert postInsert);
 
     void deletePost(Post post);
+
+    void updatePost(PostDto.updateParam updateParam);
 }

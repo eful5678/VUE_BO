@@ -165,5 +165,26 @@ public class PostDto {
 //            this.member = post.getMember();
             return this;
         }
+
+    }
+
+    @Getter
+    @Setter
+    public static class updateParam{
+        private Long postId;
+
+        private String title;
+
+        private String contents;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class update{
+        private String title;
+        public update(String title){
+            this.title = title;
+        }
     }
 }

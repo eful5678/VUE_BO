@@ -18,6 +18,7 @@ public class PostRepositoryManagerImpl implements PostRepositoryManager{
     private final EntityManager em;
 
     private final MemberRepositorySupport memberRepositorySupport;
+    private final PostRepositorySupport postRepositorySupport;
 
     @Override
     public Post insertPost(PostDto.PostInsert postInsert) {
@@ -38,5 +39,11 @@ public class PostRepositoryManagerImpl implements PostRepositoryManager{
 
         post.doRemove(post);
 
+    }
+
+    @Override
+    public void updatePost(PostDto.updateParam updateParam) {
+        final Post post = postRepositorySupport.findPostById(updateParam.getPostId());
+        post.doChange(post);
     }
 }

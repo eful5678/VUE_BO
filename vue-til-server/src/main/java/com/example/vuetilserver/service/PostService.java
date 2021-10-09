@@ -14,4 +14,6 @@ public interface PostService {
     PostDto.Delete deletePost(Long postId);
 
     PostDto.info info(PostDto.infoParam infoParam);
+
+    PostDto.update updatePost(PostDto.updateParam updateParam);
 }
