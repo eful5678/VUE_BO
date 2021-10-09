@@ -44,6 +44,8 @@ public class PostRepositoryManagerImpl implements PostRepositoryManager{
     @Override
     public void updatePost(PostDto.updateParam updateParam) {
         final Post post = postRepositorySupport.findPostById(updateParam.getPostId());
+        post.setTitle(updateParam.getTitle());
+        post.setContents(updateParam.getContents());
         post.doChange(post);
     }
 }
