@@ -20,9 +20,12 @@ public class EmployeeDto {
     @Setter
     public static class empList{
         private String name;
+        private Long id;
 
-        public empList(String name){
+        public empList(String name
+                        ,Long id){
             this.name = name;
+            this.id = id;
         }
     }
 }

@@ -24,11 +24,13 @@ public class EmpRepositorySupportImpl extends QuerydslRepositorySupport implemen
     @Override
     public List<EmployeeDto.empList> empList(EmployeeDto.empListParam empListParam) {
 
-        QEmployee employee = QEmployee.employee;
+        QEmployee Employee = QEmployee.employee;
 
         List<EmployeeDto.empList> employees = jpaQueryFactory.
-                select(Projections.constructor(EmployeeDto.empList.class,employee.name))
-                .from(employee)
+                select(Projections.constructor(EmployeeDto.empList.class
+                        ,Employee.name
+                        ,Employee.id))
+                .from(Employee)
                 .fetch();
         return employees;
     }
