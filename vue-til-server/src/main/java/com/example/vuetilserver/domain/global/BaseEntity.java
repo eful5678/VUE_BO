@@ -3,6 +3,7 @@ package com.example.vuetilserver.domain.global;
 import com.example.vuetilserver.domain.Post;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.apache.tomcat.jni.Local;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -19,6 +20,10 @@ public abstract class BaseEntity {
     @CreationTimestamp
     protected LocalDateTime createDateTime;
 
+    @Column
+    @CreationTimestamp
+    protected  LocalDateTime updateDateTime;
+
     @Column(nullable = false)
     @ColumnDefault("'Y'")
     protected char useYn = 'Y';
@@ -27,7 +32,7 @@ public abstract class BaseEntity {
     @ColumnDefault("'N'")
     protected char delYn = 'N';
 
-    protected BaseEntity(LocalDateTime createDateTime, char useYn, char delYn){
+    protected BaseEntity(LocalDateTime createDateTime, LocalDateTime updateDateTime, char useYn, char delYn){
         this.useYn = 'Y';
     }
 

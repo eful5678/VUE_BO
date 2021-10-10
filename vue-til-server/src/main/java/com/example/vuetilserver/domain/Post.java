@@ -33,9 +33,10 @@ public class Post extends BaseEntity {
                    String contents,
                    Member member,
                    LocalDateTime createDateTime,
+                   LocalDateTime updateDateTime,
                    char delYn,
                    char useYn){
-        super(createDateTime, delYn, useYn);
+        super(createDateTime, updateDateTime, delYn, useYn);
         this.title = title;
         this.contents = contents;
         this.member = member;
