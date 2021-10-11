@@ -116,11 +116,15 @@ public class PostDto {
         public PostList(){
 
         }
-        public PostList(Post post, Member member){
+        public PostList(Post post,
+                        String username,
+                        String nickname
+                        ){
             this.id = post.getId();
             this.contents = post.getContents();
             this.title = post.getTitle();
-            this.writer = member.getNickname();
+            this.writer = username;
+//            this.nickname = nickname;
             lazyModeling(post);
         }
 

@@ -34,7 +34,9 @@ public class PostRepositorySupportImpl extends QuerydslRepositorySupport impleme
         final BooleanExpression isUseYn = post.useYn.eq('Y');
         final BooleanExpression isDelYn = post.delYn.eq('N');
 
-        List<PostDto.PostList> result = jpaQueryFactory.select(Projections.constructor(PostDto.PostList.class, post, member))
+        List<PostDto.PostList> result = jpaQueryFactory.select(Projections.constructor(PostDto.PostList.class, post
+                                                        ,member.username
+                                                        ,member.nickname))
                                 .from(post)
                                 .join(member)
                                 .on(post.member.id.eq(member.id))
