@@ -28,7 +28,11 @@ public class RepairRepositorySupportImpl extends QuerydslRepositorySupport imple
         QRepair Repair = QRepair.repair;
         return jpaQueryFactory.select(Projections.constructor(RepairDto.repairList.class,
                                 Repair.containerCode,
-                                Repair.repairCost
+                Repair.shippingCompany,
+                                Repair.repairCost,
+                Repair.paymentAmount,
+                Repair.regDate,
+                Repair.repairDate
                 ))
                 .from(Repair)
                 .fetch();

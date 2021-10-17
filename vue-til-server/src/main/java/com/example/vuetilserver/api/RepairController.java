@@ -20,4 +20,9 @@ public class RepairController {
 
         return repairService.list(repairListParam);
     }
+
+    @PostMapping("/insert")
+    public RepairDto.insert insert(@RequestBody RepairDto.insertParam insertParam){
+        return repairService.insert(insertParam);
+    }
 }

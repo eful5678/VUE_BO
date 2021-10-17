@@ -7,4 +7,6 @@ import java.util.List;
 public interface RepairService {
 
     List<RepairDto.repairList> list(RepairDto.repairListParam repairListParam);
+
+    RepairDto.insert insert(RepairDto.insertParam insertParam);
 }
