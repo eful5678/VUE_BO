@@ -1,9 +1,7 @@
 package com.example.vuetilserver.domain.global;
 
-import com.example.vuetilserver.domain.Post;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Local;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 

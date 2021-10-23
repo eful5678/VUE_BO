@@ -14,7 +14,7 @@ public class RepairRepositoryManagerImpl implements RepairRepositoryManager {
     @Override
     public RepairDto.insert insert(RepairDto.insertParam insertParam) {
 
-        final Repair repair = Repair.doMaker(insertParam);
+        final Repair repair = Repair.create(insertParam).get();
         entityManager.persist(repair);
         return null;
     }

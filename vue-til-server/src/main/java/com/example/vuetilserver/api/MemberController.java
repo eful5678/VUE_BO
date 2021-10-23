@@ -4,8 +4,6 @@ import com.example.vuetilserver.config.JwtTokenProvider;
 import com.example.vuetilserver.domain.Member;
 import com.example.vuetilserver.dto.MemberDto;
 import com.example.vuetilserver.repository.UserRepository;
-import com.example.vuetilserver.service.CustomUserDetailService;
-import com.example.vuetilserver.service.MemberService;
 import com.sun.istack.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,7 +17,6 @@ import java.util.Collections;
 @CrossOrigin(origins = "http://localhost:8080")
 public class MemberController {
 
-    private final MemberService memberService;
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
 

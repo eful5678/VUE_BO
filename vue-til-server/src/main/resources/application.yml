@@ -11,8 +11,13 @@ spring:
     #      ddl-auto: none
     properties:
       hibernate:
-#        show_sql: true
+        # show_sql: true
         format_sql: true
+        # order_inserts: true
+        # generate_statistics: true
+        # cache:
+        #   use_second_level_cache: true
+        #   use_query_cache: true
 logging.level:
   org.hibernate.SQL: debug
   org.hibernate.type: trace

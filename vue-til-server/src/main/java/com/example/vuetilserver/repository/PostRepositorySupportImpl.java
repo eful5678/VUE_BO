@@ -1,6 +1,5 @@
 package com.example.vuetilserver.repository;
 
-import com.example.vuetilserver.domain.Member;
 import com.example.vuetilserver.domain.Post;
 import com.example.vuetilserver.domain.QMember;
 import com.example.vuetilserver.domain.QPost;

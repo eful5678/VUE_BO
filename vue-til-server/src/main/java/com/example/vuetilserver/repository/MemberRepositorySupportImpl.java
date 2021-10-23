@@ -2,19 +2,11 @@ package com.example.vuetilserver.repository;
 
 import com.example.vuetilserver.domain.Member;
 import com.example.vuetilserver.domain.QMember;
-import com.example.vuetilserver.dto.MemberDto;
-import com.querydsl.core.types.Projections;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import java.util.List;
-import static com.example.vuetilserver.domain.QMember.member;
 
 
 @Repository

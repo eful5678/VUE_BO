@@ -1,6 +1,5 @@
 package com.example.vuetilserver.service;
 
-import com.example.vuetilserver.domain.Employee;
 import com.example.vuetilserver.dto.EmployeeDto;
 import com.example.vuetilserver.repository.EmpRepositoryManager;
 import com.example.vuetilserver.repository.EmpRepositorySupport;

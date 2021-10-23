@@ -3,7 +3,6 @@ package com.example.vuetilserver.repository;
 import com.example.vuetilserver.domain.Employee;
 import com.example.vuetilserver.domain.QEmployee;
 import com.example.vuetilserver.dto.EmployeeDto;
-import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;

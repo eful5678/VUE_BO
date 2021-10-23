@@ -1,12 +1,9 @@
 package com.example.vuetilserver.repository;
 
-import com.example.vuetilserver.config.SessionUtil;
 import com.example.vuetilserver.domain.Member;
 import com.example.vuetilserver.domain.Post;
 import com.example.vuetilserver.dto.PostDto;
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.manager.util.SessionUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

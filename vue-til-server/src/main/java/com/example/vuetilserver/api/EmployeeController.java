@@ -1,6 +1,5 @@
 package com.example.vuetilserver.api;
 
-import com.example.vuetilserver.domain.Employee;
 import com.example.vuetilserver.dto.EmployeeDto;
 import com.example.vuetilserver.service.EmpService;
 import lombok.RequiredArgsConstructor;

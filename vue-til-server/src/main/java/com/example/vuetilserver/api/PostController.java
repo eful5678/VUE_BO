@@ -1,6 +1,5 @@
 package com.example.vuetilserver.api;
 
-import com.example.vuetilserver.domain.Post;
 import com.example.vuetilserver.dto.PostDto;
 import com.example.vuetilserver.service.PostService;
 import lombok.RequiredArgsConstructor;

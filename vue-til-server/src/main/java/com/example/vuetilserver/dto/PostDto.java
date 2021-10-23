@@ -66,7 +66,6 @@ public class PostDto {
 
         public PostInsert(String title, String content){
             this.title = title;
-            this.contents = contents;
         }
     }
 

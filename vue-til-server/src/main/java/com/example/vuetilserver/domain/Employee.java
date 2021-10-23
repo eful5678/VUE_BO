@@ -40,8 +40,6 @@ public class Employee extends BaseEntity {
                     , char delYn
                     ){
         super(createDateTime, updateDateTime, useYn, delYn);
-        this.name = name;
-        this.empLevel = empLevel;
     }
 
     protected Employee(EmployeeDto.empRegistParam empRegistParam){
