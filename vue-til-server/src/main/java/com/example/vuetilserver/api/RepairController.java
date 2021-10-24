@@ -2,7 +2,6 @@ package com.example.vuetilserver.api;
 
 import com.example.vuetilserver.dto.RepairDto;
 import com.example.vuetilserver.service.RepairService;
-import com.example.vuetilserver.util.GlobalUtil;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,7 @@ public class RepairController {
 
     @PostMapping("/insert")
     public RepairDto.insert insert(@RequestBody RepairDto.insertParam insertParam){
-        GlobalUtil.checkValidation(insertParam);
+        // GlobalUtil.checkValidation(insertParam);
         return repairService.insert(insertParam);
     }
 }

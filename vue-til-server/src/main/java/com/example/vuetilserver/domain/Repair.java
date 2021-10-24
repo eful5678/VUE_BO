@@ -66,8 +66,8 @@ public class Repair extends BaseEntity {
         this();
         this.containerCode = insertParam.getContainerCode();
         this.repairCost = insertParam.getRepairCost();
-        this.shippingCompany = insertParam.getShippingCompany();
         this.regDate = GlobalUtil.epochToTimeConvert(insertParam.getRegDate()).orElseGet(() -> null);
+        this.shippingCompany = insertParam.getShippingCompany();
     }
 
     public static Supplier<Repair> create(RepairDto.insertParam insertParam){

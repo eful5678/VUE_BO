@@ -10,6 +10,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.validation.Validation;
@@ -58,6 +59,7 @@ public class GlobalUtil {
     }
 
     // null check
+    @SuppressWarnings("rawtypes")
     public static <T> boolean nullCheck(T obj){
         if(Optional.ofNullable(obj).isPresent()){
             if(obj instanceof List){
@@ -68,6 +70,10 @@ public class GlobalUtil {
                 String str = obj.toString();
 
                 return StringUtils.isEmpty(str);
+            }else if(obj instanceof Map){
+                Map map = (Map) obj;
+
+                return map.size() == 0;
             }else if(obj instanceof Optional){
                 Optional otp = (Optional) obj;
 

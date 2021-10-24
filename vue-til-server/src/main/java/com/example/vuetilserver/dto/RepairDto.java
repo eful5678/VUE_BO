@@ -10,6 +10,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+import com.example.vuetilserver.domain.Repair;
+import com.example.vuetilserver.util.GlobalUtil;
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class RepairDto {
 
@@ -49,8 +52,10 @@ public class RepairDto {
             this.containerCode = containerCode;
             this.repairCost = repairCost;
             this.shippingCompany = shippingCompany;
-            this.regDate = ZonedDateTime.of(regDate, ZoneId.systemDefault()).toInstant().toEpochMilli();
-            this.repairDate = ZonedDateTime.of(repairDate, ZoneId.systemDefault()).toInstant().toEpochMilli();
+            this.regDate = GlobalUtil.timeToEpochConvert(regDate).orElseGet(() -> null);
+            this.repairDate= GlobalUtil.timeToEpochConvert(repairDate).orElseGet(() -> null);
+            // this.regDate = ZonedDateTime.of(regDate, ZoneId.systemDefault()).toInstant().toEpochMilli();
+            // this.repairDate = ZonedDateTime.of(repairDate, ZoneId.systemDefault()).toInstant().toEpochMilli();
             this.paymentAmount = paymentAmount;
         }
     }
@@ -64,7 +69,7 @@ public class RepairDto {
 
         private BigDecimal repairCost;
 
-        private Long regDate;
+        protected Long regDate;
 
     }
 
@@ -72,5 +77,9 @@ public class RepairDto {
     @Setter
     public static class insert{
         private String containerCode;
+
+        public insert(Repair repair){
+            this.containerCode = repair.getContainerCode();
+        }
     }
 }
